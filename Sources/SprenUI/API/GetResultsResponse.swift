@@ -107,6 +107,17 @@ struct GetResultsResponse: Decodable {
 }
 
 public struct Results: Equatable {
+    public init(guid: String, hr: Double, hrvScore: Double, rmssd: Double, breathingRate: Double, readiness: Double? = nil, ansBalance: Double? = nil, signalQuality: Double) {
+        self.guid = guid
+        self.hr = hr
+        self.hrvScore = hrvScore
+        self.rmssd = rmssd
+        self.breathingRate = breathingRate
+        self.readiness = readiness
+        self.ansBalance = ansBalance
+        self.signalQuality = signalQuality
+    }
+    
     public let guid: String
     public let hr: Double
     public let hrvScore: Double
