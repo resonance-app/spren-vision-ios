@@ -106,7 +106,7 @@ struct GetResultsResponse: Decodable {
     
 }
 
-public struct Results {
+public struct Results: Equatable {
     let guid: String
     let hr: Double
     let hrvScore: Double

@@ -127,6 +127,6 @@ extension SprenUI {
 
 struct SprenUI_Previews: PreviewProvider {
     static var previews: some View {
-        SprenUI(config: .init(baseURL: "", apiKey: "", userID: "", project: SprenUI.Config.SprenProject.bodyComp, onCancel: {}, onFinish: { _ in }))
+        SprenUI(config: .init(baseURL: "", apiKey: "", userID: "", project: SprenUI.Config.SprenProject.fingerCamera, onCancel: {}, onFinish: { _ in }))
     }
 }
