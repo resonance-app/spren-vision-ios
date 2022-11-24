@@ -107,7 +107,9 @@ extension SprenUI {
             viewModel.transition(to: .errorScreen)
         }, onFinish: { results in
             viewModel.results = results
-            viewModel.transition(to: .resultsScreen)
+            // Skip the results screen and go straight to the onFinish action
+//            viewModel.transition(to: .resultsScreen)
+            Self.config.onFinish(results)
         }))
     }
     
