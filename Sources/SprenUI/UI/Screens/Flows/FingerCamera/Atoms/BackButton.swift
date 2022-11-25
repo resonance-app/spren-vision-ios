@@ -14,7 +14,7 @@ struct BackButton: View {
 
     var body: some View {
         Button(action: action ?? {}) {
-            Image(systemName: "xmark")
+            Image(systemName: "xmark.circle.fill")
                 .resizable()
                 .frame(width: 25*Autoscale.scaleFactor,
                        height: 25*Autoscale.scaleFactor)
