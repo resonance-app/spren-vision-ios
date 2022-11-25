@@ -44,7 +44,7 @@ struct RangeBar: View {
                                 Image(systemName: "arrowtriangle.down.fill")
                                     .resizable()
                                     .frame(width: triangleSize, height: triangleSize)
-                                    .foregroundColor(Color.sprenPurple)
+                                    .foregroundColor(Color.sprenCtaBlue)
                                     .padding(.bottom, 3)
                             }
                             .frame(width: youTextWidth)
@@ -82,9 +82,9 @@ struct RangeBar: View {
                             Rectangle()
                                 .fill(
                                     LinearGradient(gradient: Gradient(stops: [
-                                        .init(color: .sprenPurple, location: 0),
+                                        .init(color: .sprenCtaBlue, location: 0),
                                         .init(color: .sprenPink,   location: (centerPercent-startPercent)/(endPercent-startPercent)),
-                                        .init(color: .sprenPurple, location: 1),
+                                        .init(color: .sprenCtaBlue, location: 1),
                                     ]),
                                                    startPoint: .leading,
                                                    endPoint: .trailing)
@@ -100,7 +100,7 @@ struct RangeBar: View {
                             Spacer(minLength: (centerPercent*width)-6)
                             
                             Circle()
-                                .fill(Color.sprenPurple)
+                                .fill(Color.sprenCtaBlue)
                                 .frame(width: lineHeight, height: lineHeight)
                             
                             Spacer(minLength: ((1-centerPercent)*width)-6)

@@ -10,11 +10,11 @@ import SwiftUI
 
 extension Color {
     
-    static let sprenPurple = Color(red: 84/255, green: 69/255, blue: 174/255)
-    static let sprenPink = Color(red: 248/255, green: 73/255, blue: 115/255)
+    static let sprenCtaBlue = Color(red: 10/255, green: 32/255, blue: 51/255)
+    static let sprenPink = Color(red: 10/255, green: 32/255, blue: 51/255)
     
     static var sprenUIPrimaryColor: Color {
-        SprenUI.config.primaryColor ?? sprenPurple
+        SprenUI.config.primaryColor ?? sprenCtaBlue
     }
     static var sprenUISecondaryColor: Color {
         SprenUI.config.secondaryColor ?? sprenPink

@@ -17,12 +17,12 @@ struct SprenButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.sprenButton)
+                .font(.system(size: 16, weight: .semibold))
                 .frame(maxWidth: .infinity)
                 .frame(height: height)
                 .foregroundColor(.white)
                 .background(Color.sprenUIPrimaryColor)
-                .cornerRadius(cornerRadius)
+                .cornerRadius(.infinity)
         }
     }
 }
@@ -30,5 +30,6 @@ struct SprenButton: View {
 struct SprenButton_Previews: PreviewProvider {
     static var previews: some View {
         SprenButton(title: "Do an HRV reading", action: {})
+            .padding(24)
     }
 }
