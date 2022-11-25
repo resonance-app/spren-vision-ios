@@ -40,13 +40,14 @@ public struct SprenUI: View {
 extension SprenUI {
     
     var greetingScreen1a: MessageScreen {
-        MessageScreen(illustration: Self.config.graphics[.greeting1] ?? "",
-                      title: "Measure your HRV and Recovery with your camera",
-                      paragraph: "Simply do a quick resting scan to receive personalized stress and recovery insights.",
-                      bulletsLabel: "For best HRV and recovery results:",
+        MessageScreen(illustration: Self.config.graphics[.greeting2] ?? "",
+                      title: "Measure your HRV and daily Resilience Score with your camera",
+                      paragraph: "Simply do a quick resting scan to receive personalized stress and resilience insights.",
+                      bulletsLabel: "For best HRV and resilience score results:",
                       bullets: [
                         "Refrain from strenuous activity for at least 15 minutes prior to reading",
-                        "Sit calmly for 1 minute before reading"
+                        "Sit calmly for 1 minute before reading",
+                        "Do your daily HRV reading right after you wake up"
                       ],
                       buttonText: "Next",
                       onBackButtonTap: SprenUI.config.onCancel,
@@ -54,13 +55,13 @@ extension SprenUI {
     }
     
     var greetingScreen1b: MessageScreen {
-        MessageScreen(illustration: Self.config.graphics[.greeting1] ?? "",
-                      title: "Take a moment to measure your recovery",
-                      bulletsLabel: "For best HRV and recovery results:",
+        MessageScreen(illustration: Self.config.graphics[.greeting2] ?? "",
+                      title: "Take a moment to take your daily resilience reading",
+                      bulletsLabel: "For best HRV and resilience results:",
                       bullets: [
                         "Refrain from strenuous activity for at least 15 minutes prior to reading",
                         "Sit calmly for 1 minute before reading",
-                        "If needed, take 6 deep, slow breaths before starting reading then breathe naturally during the reading"
+                        "Do your daily HRV reading right after you wake up"
                       ],
                       buttonText: "Next",
                       onBackButtonTap: SprenUI.config.onCancel,
