@@ -24,13 +24,11 @@ struct MeasurementProgress: View {
         HStack {
             ZStack {
                 if progress == 100 {
-                    Image("Checkmark", bundle: .module)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: checkWidth)
+                    Image(systemName: "checkmark")
+                        .font(.system(size: 18, weight: .heavy))
                 } else {
                     Text("\(progress)%")
-                        .font(.sprenProgress)
+                        .font(.system(size: 15, weight: .bold))
                 }
                 Circle()
                     .stroke(lineWidth: lineWidth)
@@ -48,7 +46,7 @@ struct MeasurementProgress: View {
             .sprenUIPadding([.leading, .trailing])
             Spacer()
             Text(text)
-                .font(.sprenParagraph)
+                .font(.system(size: 15, weight: .medium))
                 .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.leading)
                 .frame(height: size)
