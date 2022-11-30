@@ -26,10 +26,10 @@ struct UploadScreen: View {
             
             VStack {
                 Text("Calculating your results")
-                    .font(.sprenTitle)
+                    .font(.system(size: 26, weight: .semibold))
                     .sprenUIPadding()
                 Text(viewModel.messageText)
-                    .font(.sprenParagraph)
+                    .font(.system(size: 16, weight: .medium))
                     .sprenUIPadding(.bottom, factor: 2)
                 
                 ZStack {
@@ -38,31 +38,20 @@ struct UploadScreen: View {
                     }
                     
                     Circle()
-                        .stroke(lineWidth: lineWidth)
+                        .stroke(lineWidth:8)
                         .opacity(0.2)
                         .foregroundColor(Color.gray)
                         .frame(width: circleSize, height: circleSize)
                     Circle()
                         .trim(from: 0,
                               to:   viewModel.circleArc)
-                        .stroke(style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
+                        .stroke(style: StrokeStyle(lineWidth: 12, lineCap: .round, lineJoin: .round))
                         .rotationEffect(Angle(degrees: 270+viewModel.circleRotation))
                         .foregroundColor(Color.sprenUISecondaryColor)
                         .frame(width: circleSize, height: circleSize)
                 }
                 .sprenUIPadding()
                 
-            }
-            
-            VStack {
-                Spacer()
-                Text("For investigational use only. These numbers are estimates and not a substitute for the judgment of a health care professional. They are intended to improve awareness of general fitness and wellness.")
-                    .font(.disclaimer)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.sprenGray)
-                    .sprenUIPadding()
-                Image("PoweredBySpren", bundle: .module)
-                    .sprenUIPadding()
             }
         }
         .alert(isPresented: $viewModel.showAlert) {
