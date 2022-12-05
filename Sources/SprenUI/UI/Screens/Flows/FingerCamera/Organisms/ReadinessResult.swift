@@ -124,27 +124,27 @@ extension ReadinessResult {
         switch readiness {
         case 1, 2, 3:
             return [
-                ("Prioritize Recovery","Your recovery is low today. Focus on active recovery, hydration, supportive nutrition, and a solid night's sleep."),
+                ("Prioritize Recovery","Your resilience is low today. Focus on active recovery, hydration, supportive nutrition, and a solid night's sleep."),
                 ("Give yourself a break","Your nervous system activity is abnormally elevated. Overtraining, or under recovering, negatively impacts your performance. Rest to restore."),
-                ("It's all about balance","Your recovery is abnormally low. Allowing yourself adequate recovery time will lead to increased performance. Prioritize rest and recovery today."),
+                ("It's all about balance","Your resilience is abnormally low. Allowing yourself adequate recovery time will lead to increased performance. Prioritize rest and recovery today."),
             ].randomElement()
         case 4, 5, 6:
             return [
                 ("Take it easier today","Your HRV balance indicates your body is responding to more stress today. Focus on lower intensity exercises and prioritize recovery."),
                 ("Great day to check in","Your body's nervous system activity is elevated. It's critical to pay attention to both how you feel and your body's response to your workouts."),
-                ("Listen to your body","You have lower recovery than normal. Focus today on active recovery which helps reduce muscle soreness, improve flexibility and other physiological factors."),
+                ("Listen to your body","You have lower resilience than normal. Focus today on active recovery which helps reduce fatique, improve flexibility and other physiological factors."),
             ].randomElement()
         case 7, 8:
             return [
-                ("Do what feels good","Your overall recovery is good. Keep it up! Healthy sleep, nutrition, and mental wellness are critical in preventing overtraining."),
-                ("Going strong","Your recovery was good but with slightly elevated nervous system activity. Today is a good day to focus on form over intensity to not overdo it."),
-                ("How are you feeling?","Your overall recovery is at a nice level. Listen to your body, and do what feels good today!"),
+                ("Do what feels good","Your overall resilience is good. Keep it up! Healthy sleep, nutrition, and mental wellness are critical in preventing overtraining."),
+                ("Going strong","Your resilience was good but with slightly elevated nervous system activity. Today is a good day to focus on form over intensity to not overdo it."),
+                ("How are you feeling?","Your overall resilience is at a nice level. Listen to your body, and do what feels good today!"),
             ].randomElement()
         case 9, 10:
             return [
                 ("Bring it on!","Your HRV balance indicates that you have recovered well and are ready for today’s training with moderate to high intensity."),
                 ("Today’s your day","Compared to your recent baseline, your nervous system is well balanced. Tackle your workout based on how you feel."),
-                ("Remarkable Recovery","You are well recovered! Your HRV balance indicates you can give it your all and will likely to recover quickly. Make today awesome!"),
+                ("Remarkable Resilience","You are well recovered! Your HRV balance indicates you can give it your all and will likely to recover quickly. Make today awesome!"),
             ].randomElement()
         case .none: fallthrough
         default:
