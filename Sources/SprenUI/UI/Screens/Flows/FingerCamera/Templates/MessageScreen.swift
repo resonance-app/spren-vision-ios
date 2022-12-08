@@ -76,7 +76,7 @@ public struct MessageScreen: View {
                         .colorMultiply(Color.sprenUISecondaryColor.opacity(0.75))
                 } else {
                     Image(illustration, bundle: SprenUI.config.bundle)
-                        .resizable()
+                        .resizable().aspectRatio(contentMode: .fit)
                         .frame(width: illustrationSize,
                                height: illustrationSize)
                 }
