@@ -136,14 +136,14 @@ extension ReadinessResult {
             ].randomElement()
         case 7, 8:
             return [
-                ("Do what feels good","Your overall resilience is good. Keep it up! Healthy sleep, nutrition, and mental wellness are critical in preventing overtraining."),
+                ("Do what feels good","Your overall resilience is good. Keep it up! Healthy sleep, nutrition, and mental wellness are critical in preventing negative stress."),
                 ("Going strong","Your resilience was good but with slightly elevated nervous system activity. Today is a good day to focus on form over intensity to not overdo it."),
                 ("How are you feeling?","Your overall resilience is at a nice level. Listen to your body, and do what feels good today!"),
             ].randomElement()
         case 9, 10:
             return [
-                ("Bring it on!","Your HRV balance indicates that you have recovered well and are ready for today’s training with moderate to high intensity."),
-                ("Today’s your day","Compared to your recent baseline, your nervous system is well balanced. Tackle your workout based on how you feel."),
+                ("Bring it on!","Your HRV balance indicates that you have recovered well and are ready for today’s challenges with moderate to high intensity."),
+                ("Today’s your day","Compared to your recent baseline, your nervous system is well balanced. Tackle your day based on how you feel."),
                 ("Remarkable Resilience","You are well recovered! Your HRV balance indicates you can give it your all and will likely to recover quickly. Make today awesome!"),
             ].randomElement()
         case .none: fallthrough
