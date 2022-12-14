@@ -49,6 +49,7 @@ extension ReadingScreen {
             self.onBackButtonTapNav = onBackButtonTap
             self.onFinishNav = onFinish
             
+            self.onReadingStateChange(true)
             // MARK: - SprenCapture
             
             do {
@@ -120,7 +121,6 @@ extension ReadingScreen {
             progress = 0
             progressText = "Place your fingertip over the rear-facing camera lens."
             showAlert = false
-            self.onReadingStateChange(false)
             Spren.autoStart = true
             signalPreview = []
         }
@@ -131,7 +131,6 @@ extension ReadingScreen {
             try? sprenCapture?.lock()
             
             readingState = .reading
-            self.onReadingStateChange(true)
             Haptics.softImpact()
         }
         
@@ -155,12 +154,12 @@ extension ReadingScreen {
             try? sprenCapture?.unlock()
             sprenCapture?.stop()
             reset()
+            self.onReadingStateChange(false)
             onBackButtonTapNav()
         }
         
         func errorState() {
             readingState = .preReading
-            self.onReadingStateChange(false)
             try? sprenCapture?.unlock()
             showErrorAlert() // calls reset
         }
