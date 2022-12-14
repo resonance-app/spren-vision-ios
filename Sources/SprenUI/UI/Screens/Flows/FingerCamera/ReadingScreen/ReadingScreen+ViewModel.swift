@@ -13,6 +13,7 @@ import SprenCore
 extension ReadingScreen {
     class ViewModel: ObservableObject {
         
+        let onReadingStateChange: (Bool) -> Void
         let onBackButtonTapNav: () -> Void
         let onFinishNav: () -> Void
         
@@ -42,8 +43,9 @@ extension ReadingScreen {
         
         var sprenCapture: SprenCapture? = nil
         
-        init(onBackButtonTap: @escaping () -> Void, onFinish: @escaping () -> Void) {
+        init(onReadingStateChange: @escaping (Bool) -> Void, onBackButtonTap: @escaping () -> Void, onFinish: @escaping () -> Void) {
             
+            self.onReadingStateChange = onReadingStateChange
             self.onBackButtonTapNav = onBackButtonTap
             self.onFinishNav = onFinish
             
@@ -118,6 +120,7 @@ extension ReadingScreen {
             progress = 0
             progressText = "Place your fingertip over the rear-facing camera lens."
             showAlert = false
+            self.onReadingStateChange(false)
             Spren.autoStart = true
             signalPreview = []
         }
@@ -128,6 +131,7 @@ extension ReadingScreen {
             try? sprenCapture?.lock()
             
             readingState = .reading
+            self.onReadingStateChange(true)
             Haptics.softImpact()
         }
         
@@ -139,6 +143,7 @@ extension ReadingScreen {
             Haptics.successNotification()
             
             DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                self.onReadingStateChange(false)
                 self.onFinishNav()
             }
             DispatchQueue.global(qos: .background).async {
@@ -155,7 +160,7 @@ extension ReadingScreen {
         
         func errorState() {
             readingState = .preReading
-            
+            self.onReadingStateChange(false)
             try? sprenCapture?.unlock()
             showErrorAlert() // calls reset
         }
