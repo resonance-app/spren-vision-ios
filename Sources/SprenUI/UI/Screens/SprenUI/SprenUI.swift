@@ -88,7 +88,7 @@ extension SprenUI {
     
     var fingerOnCameraScreen: MessageScreen {
         MessageScreen(illustration: Self.config.graphics[.fingerOnCamera] ?? "",
-                      title: "Place your fingertip fully over the camera lens",
+                      title: "Cover the camera lens and flashlight with your finger",
                       paragraph: "Hold your hand steady and apply light pressure with your finger.",
                       buttonText: "Start measurement",
                       onBackButtonTap: { viewModel.transition(to: viewModel.firstScreen) },
