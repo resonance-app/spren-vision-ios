@@ -124,27 +124,27 @@ extension ReadinessResult {
         switch readiness {
         case 1, 2, 3:
             return [
-                ("Prioritize Recovery","Your resilience is low today. Focus on active recovery, hydration, supportive nutrition, and a solid night's sleep."),
-                ("Give yourself a break","Your nervous system activity is abnormally elevated. Overtraining, or under recovering, negatively impacts your performance. Rest to restore."),
-                ("It's all about balance","Your resilience is abnormally low. Allowing yourself adequate recovery time will lead to increased performance. Prioritize rest and recovery today."),
+                ("Prioritize Recovery","Your resilience is low today. Focus on self-care activities such as relaxation, hydration, and supportive nutrition, and aim for a good night's sleep."),
+                ("Give yourself a break","Your nervous system activity is unusually high. Engaging in too much physical or mental activity, or not allowing enough time for rest and recovery, can negatively impact your overall well-being. Take some time to rest and restore your energy."),
+                ("It's all about balance","Your resilience is unusually low. Allowing yourself sufficient time for rest and recovery can lead to increased energy and overall well-being. Make self-care a priority today."),
             ].randomElement()
         case 4, 5, 6:
             return [
-                ("Take it easier today","Your HRV balance indicates your body is responding to more stress today. Focus on lower intensity exercises and prioritize recovery."),
-                ("Great day to check in","Your body's nervous system activity is elevated. It's critical to pay attention to both how you feel and your body's response to your workouts."),
-                ("Listen to your body","You have lower resilience than normal. Focus today on active recovery which helps reduce fatique, improve flexibility and other physiological factors."),
+                ("Take it easier today","Your HRV balance indicates that your body is responding to more stress today. Consider engaging in lower intensity activities and prioritize self-care practices to support recovery."),
+                ("Great day to check in","Your body's nervous system activity is elevated. Pay attention to how you are feeling and the impact of your activities on your overall well-being."),
+                ("Listen to your body","Your resilience is lower than normal. Today, focus on self-care practices that can help reduce fatigue, improve flexibility, and support overall physical and mental well-being."),
             ].randomElement()
         case 7, 8:
             return [
-                ("Do what feels good","Your overall resilience is good. Keep it up! Healthy sleep, nutrition, and mental wellness are critical in preventing negative stress."),
-                ("Going strong","Your resilience was good but with slightly elevated nervous system activity. Today is a good day to focus on form over intensity to not overdo it."),
-                ("How are you feeling?","Your overall resilience is at a nice level. Listen to your body, and do what feels good today!"),
+                ("Do what feels good","Your overall resilience is good. Keep it up! Remember to prioritize self-care activities such as healthy sleep, nutrition, and resonance breathing to maintain your well-being."),
+                ("Going strong","Your resilience is good, but your nervous system activity is slightly elevated. Listen to your body and engage in activities that feel manageable and sustainable."),
+                ("How are you feeling?","Your overall resilience is at a good level. Listen to your body and do what feels good for you today."),
             ].randomElement()
         case 9, 10:
             return [
-                ("Bring it on!","Your HRV balance indicates that you have recovered well and are ready for today’s challenges with moderate to high intensity."),
-                ("Today’s your day","Compared to your recent baseline, your nervous system is well balanced. Tackle your day based on how you feel."),
-                ("Remarkable Resilience","You are well recovered! Your HRV balance indicates you can give it your all and will likely to recover quickly. Make today awesome!"),
+                ("Bring it on!","Your HRV balance indicates that you have recovered well and have the energy to tackle the day's challenges with moderate to high intensity."),
+                ("Today’s your day","Compared to your recent baseline, your nervous system is well-balanced. Follow your body's lead and do what feels good for you today."),
+                ("Remarkable Resilience","You are well-recovered! Your HRV balance indicates that you have the energy to give it your all and will likely recover quickly. Make it your day!"),
             ].randomElement()
         case .none: fallthrough
         default:
