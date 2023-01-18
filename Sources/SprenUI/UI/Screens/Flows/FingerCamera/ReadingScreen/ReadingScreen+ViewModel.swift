@@ -13,6 +13,7 @@ import SprenCore
 extension ReadingScreen {
     class ViewModel: ObservableObject {
         
+        let onReadingStateChange: (Bool) -> Void
         let onBackButtonTapNav: () -> Void
         let onFinishNav: () -> Void
         
@@ -42,11 +43,13 @@ extension ReadingScreen {
         
         var sprenCapture: SprenCapture? = nil
         
-        init(onBackButtonTap: @escaping () -> Void, onFinish: @escaping () -> Void) {
+        init(onReadingStateChange: @escaping (Bool) -> Void, onBackButtonTap: @escaping () -> Void, onFinish: @escaping () -> Void) {
             
+            self.onReadingStateChange = onReadingStateChange
             self.onBackButtonTapNav = onBackButtonTap
             self.onFinishNav = onFinish
             
+            self.onReadingStateChange(true)
             // MARK: - SprenCapture
             
             do {
@@ -139,6 +142,7 @@ extension ReadingScreen {
             Haptics.successNotification()
             
             DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                self.onReadingStateChange(false)
                 self.onFinishNav()
             }
             DispatchQueue.global(qos: .background).async {
@@ -150,12 +154,12 @@ extension ReadingScreen {
             try? sprenCapture?.unlock()
             sprenCapture?.stop()
             reset()
+            self.onReadingStateChange(false)
             onBackButtonTapNav()
         }
         
         func errorState() {
             readingState = .preReading
-            
             try? sprenCapture?.unlock()
             showErrorAlert() // calls reset
         }
@@ -239,15 +243,17 @@ extension ReadingScreen {
             alertPrimaryButtonText = "Turn on flash"
             alertOnPrimaryButtonTap = {
                 self.turnOnFlash()
+                self.onReadingStateChange(true)
                 self.reset()
             }
             alertSecondaryButtonText = "Cancel"
             alertOnSecondaryButtonTap = {
+                self.onReadingStateChange(true)
                 self.reset()
             }
             
             SprenUI.config.logger?.info("show brightness alert")
-
+            self.onReadingStateChange(false)
             showAlert = true
         }
         
@@ -256,13 +262,14 @@ extension ReadingScreen {
             alertParagraph = "Please make sure your finger fully covers the camera lens throughout the entire measurement"
             alertPrimaryButtonText = "Try again"
             alertOnPrimaryButtonTap = {
+                self.onReadingStateChange(true)
                 self.reset()
             }
             alertSecondaryButtonText = nil
             alertOnSecondaryButtonTap = nil
             
             SprenUI.config.logger?.info("show error alert")
-
+            self.onReadingStateChange(false)
             showAlert = true
         }
         
@@ -276,11 +283,12 @@ extension ReadingScreen {
             }
             alertSecondaryButtonText = "Continue Measurement"
             alertOnSecondaryButtonTap = {
+                self.onReadingStateChange(true)
                 self.showAlert = false
             }
             
             SprenUI.config.logger?.info("show cancel alert")
-            
+            self.onReadingStateChange(false)
             showAlert = true
         }
         
