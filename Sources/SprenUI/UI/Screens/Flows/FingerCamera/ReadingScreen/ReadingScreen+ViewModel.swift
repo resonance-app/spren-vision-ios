@@ -197,9 +197,9 @@ extension ReadingScreen {
             let pInt = Int(progress)
             switch pInt {
             case 0:
-                progressText = "Place your fingertip over the rear-facing camera lens."
+                progressText = "Make sure your finger fully covers the flashlight and the right camera. Apply enough pressure so that the entire screen stays red."
             case 1:
-                progressText = "Detecting your pulse. Keep your hand still and apply gentle pressure."
+                progressText = "Detecting your pulse. Keep your hand still and apply firm pressure."
             case 30:
                 progressText = "Measuring your heart rate. Please relax and hold still."
             case 50:
