@@ -42,6 +42,7 @@ extension SprenUI {
             .setupGuide: "SetupGuide"
         ]
         public let onReadingStateChange: ((Bool) -> Void)
+        public let onError: (() -> Void)
         public let onCancel: (() -> Void)
         public let onFinish: ((_ results: Results) -> Void)
         
@@ -82,6 +83,7 @@ extension SprenUI {
                     project: SprenProject,
                     graphics: [Graphic: String]? = nil,
                     onReadingStateChange: @escaping ((Bool) -> Void),
+                    onError: @escaping (() -> Void),
                     onCancel: @escaping (() -> Void),
                     onFinish: @escaping ((Results) -> Void),
                     logger: Logger? = nil) {
@@ -100,6 +102,7 @@ extension SprenUI {
                 self.bundle = .main
             }
             self.onReadingStateChange = onReadingStateChange
+            self.onError = onError
             self.onCancel = onCancel
             self.onFinish = onFinish
             

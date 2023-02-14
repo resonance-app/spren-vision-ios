@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct SprenUI: View {
-    static var config = Config(baseURL: "", apiKey: "", userID: "", userGender: nil, userBirthdate: nil, project: SprenUI.Config.SprenProject.fingerCamera, onReadingStateChange: { _ in }, onCancel: {}, onFinish: { _ in })
+    static var config = Config(baseURL: "", apiKey: "", userID: "", userGender: nil, userBirthdate: nil, project: SprenUI.Config.SprenProject.fingerCamera, onReadingStateChange: { _ in }, onError: {}, onCancel: {}, onFinish: { _ in })
     
     @StateObject var viewModel = ViewModel()
         
@@ -96,7 +96,7 @@ extension SprenUI {
     }
     
     var readingScreen: ReadingScreen {
-        ReadingScreen(viewModel: .init(onReadingStateChange: Self.config.onReadingStateChange, onBackButtonTap: { viewModel.transition(to: viewModel.firstScreen) }, onFinish: {
+        ReadingScreen(viewModel: .init(onReadingStateChange: Self.config.onReadingStateChange, onError: Self.config.onError, onBackButtonTap: { viewModel.transition(to: viewModel.firstScreen) }, onFinish: {
             viewModel.transition(to: .uploadScreen)
         }))
     }
@@ -106,6 +106,7 @@ extension SprenUI {
             viewModel.transition(to: viewModel.firstScreen)
         }, onError: {
             viewModel.transition(to: .errorScreen)
+            Self.config.onError()
         }, onFinish: { results in
             viewModel.results = results
             // Skip the results screen and go straight to the onFinish action
@@ -130,6 +131,6 @@ extension SprenUI {
 
 struct SprenUI_Previews: PreviewProvider {
     static var previews: some View {
-        SprenUI(config: .init(baseURL: "", apiKey: "", userID: "", project: SprenUI.Config.SprenProject.fingerCamera, onReadingStateChange: { _ in }, onCancel: {}, onFinish: { _ in }))
+        SprenUI(config: .init(baseURL: "", apiKey: "", userID: "", project: SprenUI.Config.SprenProject.fingerCamera, onReadingStateChange: { _ in }, onError: {}, onCancel: {}, onFinish: { _ in }))
     }
 }
