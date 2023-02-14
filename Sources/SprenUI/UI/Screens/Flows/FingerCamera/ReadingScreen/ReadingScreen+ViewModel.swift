@@ -258,8 +258,8 @@ extension ReadingScreen {
         }
         
         func showErrorAlert() {
-            alertTitle = "Reading stopped, please try again"
-            alertParagraph = "Please make sure your finger fully covers the camera lens throughout the entire measurement"
+            alertTitle = "Oops, something isn't working out yet"
+            alertParagraph = "Make sure your finger fully covers the camera and flashlight. Apply enough pressure on both the lens and the flash so that the entire screen stays red and no extra light is leaking into the camera."
             alertPrimaryButtonText = "Try again"
             alertOnPrimaryButtonTap = {
                 self.onReadingStateChange(true)
