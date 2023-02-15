@@ -42,7 +42,7 @@ extension UploadScreen {
         let rotatedMessages = [
             "Syncing data...",
             "Analyzing heart rate...",
-            "Performing complex calculations...",
+            "Performing calculations...",
             "Generating results...",
         ]
         

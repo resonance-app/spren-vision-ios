@@ -42,12 +42,12 @@ extension SprenUI {
     var greetingScreen1a: MessageScreen {
         MessageScreen(illustration: Self.config.graphics[.greeting2] ?? "",
                       title: "Measure your HRV and daily Resilience Score with your camera",
-                      paragraph: "Simply do a quick resting scan to receive personalized stress and resilience insights.",
+                      paragraph: "Do a quick resting scan to receive personalized stress and resilience insights.",
                       bulletsLabel: "For best HRV and resilience score results:",
                       bullets: [
                         "Refrain from strenuous activity for at least 15 minutes prior to reading",
                         "Sit calmly for 1 minute before reading",
-                        "Do your daily HRV reading right after you wake up"
+                        "Do your daily HRV readings every morning right after you wake up"
                       ],
                       buttonText: "Next",
                       onBackButtonTap: SprenUI.config.onCancel,
@@ -61,7 +61,7 @@ extension SprenUI {
                       bullets: [
                         "Refrain from strenuous activity for at least 15 minutes prior to reading",
                         "Sit calmly for 1 minute before reading",
-                        "Do your daily HRV reading right after you wake up"
+                        "Do your daily HRV readings every morning right after you wake up"
                       ],
                       buttonText: "Next",
                       onBackButtonTap: SprenUI.config.onCancel,
@@ -76,7 +76,7 @@ extension SprenUI {
                       onBackButtonTap: { viewModel.transition(to: viewModel.firstScreen) },
                       onBottomButtonTap: viewModel.handleVideoAuthorization)
     }
-    
+ 
     var noCameraScreen: MessageScreen {
         MessageScreen(illustration: Self.config.graphics[.noCamera] ?? "",
                          title: "Camera access is needed to start an HRV measurement",
@@ -88,8 +88,8 @@ extension SprenUI {
     
     var fingerOnCameraScreen: MessageScreen {
         MessageScreen(illustration: Self.config.graphics[.fingerOnCamera] ?? "",
-                      title: "Cover the camera lens and flashlight with your finger",
-                      paragraph: "Hold your hand steady and apply light pressure with your finger.",
+                      title: "Cover the flashlight and camera lens with your finger",
+                      paragraph: "Once the measurement starts, hold your hand steady and apply firm pressure on both the flash and the camera.",
                       buttonText: "Start measurement",
                       onBackButtonTap: { viewModel.transition(to: viewModel.firstScreen) },
                       onBottomButtonTap: { viewModel.transition(to: .readingScreen) })

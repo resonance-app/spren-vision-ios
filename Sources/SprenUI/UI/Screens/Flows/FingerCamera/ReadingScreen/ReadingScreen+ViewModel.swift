@@ -197,9 +197,9 @@ extension ReadingScreen {
             let pInt = Int(progress)
             switch pInt {
             case 0:
-                progressText = "Place your fingertip over the rear-facing camera lens."
+                progressText = "Make sure your finger fully covers the flashlight and the correct camera. Apply enough pressure so that the entire screen stays red."
             case 1:
-                progressText = "Detecting your pulse. Keep your hand still and apply gentle pressure."
+                progressText = "Detecting your pulse. Keep your hand still and apply firm pressure."
             case 30:
                 progressText = "Measuring your heart rate. Please relax and hold still."
             case 50:
@@ -239,7 +239,7 @@ extension ReadingScreen {
         
         func showBrightnessAlert() {
             alertTitle = "There is not enough light for the measurement"
-            alertParagraph = "Please move to a well lit area or turn your flashlight on."
+            alertParagraph = "Make sure the flash is on and your finger covers both the flashlight and the camera with enough pressure. "
             alertPrimaryButtonText = "Turn on flash"
             alertOnPrimaryButtonTap = {
                 self.turnOnFlash()
@@ -258,8 +258,8 @@ extension ReadingScreen {
         }
         
         func showErrorAlert() {
-            alertTitle = "Reading stopped, please try again"
-            alertParagraph = "Please make sure your finger fully covers the camera lens throughout the entire measurement"
+            alertTitle = "Oops, something isn't working out yet"
+            alertParagraph = "Make sure your finger fully covers the camera and flashlight. Apply enough pressure on both the lens and the flash so that the entire screen stays red and no extra light is leaking into the camera."
             alertPrimaryButtonText = "Try again"
             alertOnPrimaryButtonTap = {
                 self.onReadingStateChange(true)
