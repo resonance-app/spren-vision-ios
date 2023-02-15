@@ -161,14 +161,12 @@ extension SprenCapture {
         if newMode == .off {
             videoDevice.torchMode = .off
         } else {
-            var torchLevel = AVCaptureDevice.maxAvailableTorchLevel
             switch Device.current {
             case .iPhone13Pro, .iPhone13ProMax, .iPhone14Pro, .iPhone14ProMax:
-                torchLevel = max(0.1, torchLevel * 0.75)
+                try videoDevice.setTorchModeOn(level: AVCaptureDevice.maxAvailableTorchLevel * 0.75)
             default:
-                break
+                try videoDevice.setTorchModeOn(level: AVCaptureDevice.maxAvailableTorchLevel)
             }
-            try videoDevice.setTorchModeOn(level: torchLevel)
         }
         videoDevice.unlockForConfiguration()
         return videoDevice.torchMode
