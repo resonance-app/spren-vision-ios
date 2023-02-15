@@ -14,6 +14,7 @@ extension ReadingScreen {
     class ViewModel: ObservableObject {
         
         let onReadingStateChange: (Bool) -> Void
+        let onError: () -> Void
         let onBackButtonTapNav: () -> Void
         let onFinishNav: () -> Void
         
@@ -43,9 +44,10 @@ extension ReadingScreen {
         
         var sprenCapture: SprenCapture? = nil
         
-        init(onReadingStateChange: @escaping (Bool) -> Void, onBackButtonTap: @escaping () -> Void, onFinish: @escaping () -> Void) {
+        init(onReadingStateChange: @escaping (Bool) -> Void, onError: @escaping () -> Void, onBackButtonTap: @escaping () -> Void, onFinish: @escaping () -> Void) {
             
             self.onReadingStateChange = onReadingStateChange
+            self.onError = onError
             self.onBackButtonTapNav = onBackButtonTap
             self.onFinishNav = onFinish
             
@@ -161,6 +163,7 @@ extension ReadingScreen {
         func errorState() {
             readingState = .preReading
             try? sprenCapture?.unlock()
+            self.onError()
             showErrorAlert() // calls reset
         }
         

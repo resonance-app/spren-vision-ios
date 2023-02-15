@@ -96,7 +96,7 @@ extension ReadingScreen {
 
 struct ReadingScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = ReadingScreen.ViewModel(onReadingStateChange: {_ in }, onBackButtonTap: {},
+        let viewModel = ReadingScreen.ViewModel(onReadingStateChange: {_ in }, onError: {}, onBackButtonTap: {},
                                                 onFinish: {})
 //        viewModel.showBrightnessAlert()
 //        viewModel.showErrorAlert()
