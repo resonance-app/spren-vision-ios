@@ -80,7 +80,8 @@ struct ResultsScreen: View {
             }
             
             // ANS balance
-            if let ansBalance = results.ansBalance, let intANSBalance = Int(ansBalance) {
+            if let ansBalance = results.ansBalance {
+                let intANSBalance = Int(ansBalance)
                 ANSBalanceResult(ansBalance: intANSBalance, onInfoButtonTap: { transition(to: .ansBalanceInfo) })
             }
             

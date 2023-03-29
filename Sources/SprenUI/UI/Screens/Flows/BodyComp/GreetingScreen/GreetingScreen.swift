@@ -18,9 +18,8 @@ struct GreetingScreen: View {
                 getColor(colorScheme: colorScheme, light: .sprenBodyCompBackgroundLight, dark: .sprenBodyCompBackgroundDark).edgesIgnoringSafeArea(.all)
                 
                 VStack {
-                    if let onCancel = SprenUI.config.onCancel {
-                        CloseButton(action: onCancel)
-                    }
+                    let onCancel = SprenUI.config.onCancel
+                    CloseButton(action: onCancel)
                     
                     if SprenUI.config.bundle == .module {
                         Image(SprenUI.config.graphics[.greetings] ?? "", bundle: .module).resizable()
