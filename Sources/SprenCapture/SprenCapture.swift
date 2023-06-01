@@ -74,9 +74,9 @@ open class SprenCapture {
     public init() throws {
         let deviceType: AVCaptureDevice.DeviceType
         switch Device.current {
-        case .iPhone7Plus, .iPhone8Plus:
+        case .iPhone7Plus, .iPhone8Plus, .iPhoneX:
             deviceType = .builtInTelephotoCamera
-        case .iPhone13Pro, .iPhone13ProMax, .iPhone14Pro, .iPhone14ProMax:
+        case .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12Pro, .iPhone12ProMax, .iPhone13Pro, .iPhone13ProMax, .iPhone14Pro, .iPhone14ProMax:
             deviceType = .builtInUltraWideCamera
         default:
             deviceType = .builtInWideAngleCamera
@@ -162,7 +162,7 @@ extension SprenCapture {
             videoDevice.torchMode = .off
         } else {
             switch Device.current {
-            case .iPhone13Pro, .iPhone13ProMax, .iPhone14Pro, .iPhone14ProMax, .iPhoneX:
+            case .iPhone11Pro, .iPhone11ProMax, .iPhone12Pro, .iPhone12ProMax, .iPhone13Pro, .iPhone13ProMax, .iPhone14Pro, .iPhone14ProMax, .iPhoneX:
                 try videoDevice.setTorchModeOn(level: min(AVCaptureDevice.maxAvailableTorchLevel, 0.25))
             default:
                 try videoDevice.setTorchModeOn(level: AVCaptureDevice.maxAvailableTorchLevel)
