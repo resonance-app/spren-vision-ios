@@ -43,7 +43,7 @@ extension SprenUI {
         ]
         public let onReadingStateChange: ((Bool) -> Void)
         public let onError: (() -> Void)
-        public let onCancel: (() -> Void)
+        public let onCancel: (() -> Void)?
         public let onFinish: ((_ results: Results) -> Void)
         
         // only relevant to demo app
@@ -84,7 +84,7 @@ extension SprenUI {
                     graphics: [Graphic: String]? = nil,
                     onReadingStateChange: @escaping ((Bool) -> Void),
                     onError: @escaping (() -> Void),
-                    onCancel: @escaping (() -> Void),
+                    onCancel: (() -> Void)? = nil,
                     onFinish: @escaping ((Results) -> Void),
                     logger: Logger? = nil) {
             self.baseURL = baseURL
