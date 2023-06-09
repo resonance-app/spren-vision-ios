@@ -1,3 +1,17 @@
+## 2.2.2
+
+Android: Fixed concurrency exception, fixed null-pointer exception
+
+## 2.2.1
+
+Android: Samsung Galaxy S22 - adding support 
+
+## 2.2.0
+
+Android: Improving default camera lens for numerous phone models.
+
+https://docs.spren.com/spren-vision/spren-vision-android-sdk
+
 ## 2.1.2
 
 iOS: Fixed frame drop issue
