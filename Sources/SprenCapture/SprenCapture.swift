@@ -76,7 +76,7 @@ open class SprenCapture {
         switch Device.current {
         case .iPhone7Plus, .iPhone8Plus, .iPhoneX:
             deviceType = .builtInTelephotoCamera
-        case .iPhone11, .iPhone11Pro, .iPhone11ProMax, .iPhone12Pro, .iPhone12ProMax, .iPhone13Pro, .iPhone13ProMax, .iPhone14Pro, .iPhone14ProMax:
+        case .iPhone13Pro, .iPhone13ProMax, .iPhone14Pro, .iPhone14ProMax:
             deviceType = .builtInUltraWideCamera
         default:
             deviceType = .builtInWideAngleCamera
